@@ -177,6 +177,7 @@ public class CompilerPluginTest {
     public static abstract class TestPrint extends BPFProgram {
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -226,6 +227,7 @@ public class CompilerPluginTest {
     public static abstract class TestGlobalVariable extends BPFProgram {
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -243,6 +245,7 @@ public class CompilerPluginTest {
     public void testGlobalVariable() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                                 
                 s32 count SEC(".data");
@@ -285,6 +288,7 @@ public class CompilerPluginTest {
     public static abstract class TestString extends BPFProgram {
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -303,6 +307,7 @@ public class CompilerPluginTest {
     public void testString() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 u8 stringAt(u8 *str);
@@ -324,6 +329,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -357,6 +363,7 @@ public class CompilerPluginTest {
     public void testArray() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 s32 access(s32 arr[2]);
@@ -397,6 +404,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -442,6 +450,7 @@ public class CompilerPluginTest {
     public void testForLoopAndIf() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 s32 forLoop();
@@ -492,6 +501,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -509,6 +519,7 @@ public class CompilerPluginTest {
     public void testComments() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 s32 testComments();
@@ -524,6 +535,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -538,6 +550,7 @@ public class CompilerPluginTest {
     public void testFinalVariable() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 s32 finalVariable();
@@ -554,6 +567,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -587,6 +601,7 @@ public class CompilerPluginTest {
     public void testEnum() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                                 
                 enum TestEnum {
@@ -628,6 +643,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -654,6 +670,7 @@ public class CompilerPluginTest {
     public void testConstants() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                                 
                 #define TEST_CONSTANT 100
@@ -686,6 +703,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -716,6 +734,7 @@ public class CompilerPluginTest {
     public void testStruct() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                                 
                 struct Event {
@@ -746,6 +765,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -768,6 +788,7 @@ public class CompilerPluginTest {
     public void testNotUsableInJavaStruct() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                                 
                 struct Event {
@@ -789,6 +810,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -816,6 +838,7 @@ public class CompilerPluginTest {
     public void testUnion() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 union SampleUnion {
@@ -844,6 +867,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -868,6 +892,7 @@ public class CompilerPluginTest {
     public void testRecordStruct() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                                 
                 struct Event {
@@ -897,6 +922,7 @@ public class CompilerPluginTest {
 
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -1027,6 +1053,7 @@ public class CompilerPluginTest {
     static abstract class TestStringBody extends BPFProgram {
         static final String EBPF_PROGRAM = """
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 """;
 
@@ -1045,6 +1072,7 @@ public class CompilerPluginTest {
     public void testStringBody() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
                 
                 int body();
@@ -1109,6 +1137,7 @@ public class CompilerPluginTest {
     public void testUsingCodeInMethods() {
         assertEqualsDiffed("""
                 #include "vmlinux.h"
+                #include <linux/types.h>
                 #include <bpf/bpf_helpers.h>
 
                 int func(s32 x);

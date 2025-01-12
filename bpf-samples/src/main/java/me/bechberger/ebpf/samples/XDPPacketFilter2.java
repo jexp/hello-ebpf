@@ -39,6 +39,7 @@ public abstract class XDPPacketFilter2 extends BPFProgram implements Runnable {
 
     private static final String EBPF_PROGRAM = """
             #include <vmlinux.h>
+            #include <linux/types.h>
             #include <bpf/bpf_helpers.h>
             #include <bpf/bpf_endian.h>
             

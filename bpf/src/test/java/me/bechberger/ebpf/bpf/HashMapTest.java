@@ -21,6 +21,7 @@ public class HashMapTest {
     public static abstract class Program extends BPFProgram {
         static final String EBPF_PROGRAM = """
             #include "vmlinux.h"
+            #include <linux/types.h>
             #include <bpf/bpf_helpers.h>
             #include <bpf/bpf_tracing.h>
             #include <string.h>
@@ -149,6 +150,7 @@ public class HashMapTest {
     public static abstract class LRUProgram extends BPFProgram {
         static final String EBPF_PROGRAM = """
             #include "vmlinux.h"
+            #include <linux/types.h>
             #include <bpf/bpf_helpers.h>
             #include <bpf/bpf_tracing.h>
             #include <string.h>

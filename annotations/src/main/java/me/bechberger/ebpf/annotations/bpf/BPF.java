@@ -40,6 +40,7 @@ public @interface BPF {
      */
     String[] includes() default {
             "vmlinux.h",
+            "<linux/types.h>",
             "bpf/bpf_helpers.h",
             "bpf/bpf_endian.h",
             "bpf/bpf_tracing.h"
